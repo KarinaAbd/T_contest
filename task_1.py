@@ -15,11 +15,11 @@
 # Выведите одно натуральное число — суммарные расходы Кости на интернет.
 
 
-def calculate_payment():
-    payment, plan_amount, extra_pay, real_amount = map(int, input().split())
+def calculate_payment(payment, plan_amount, extra_pay, real_amount):
     if real_amount > plan_amount:
         payment += (real_amount - plan_amount) * extra_pay
-    print(payment)
+    return payment
 
 
-calculate_payment()
+assert calculate_payment(100, 10, 12, 15) == 160
+assert calculate_payment(100, 10, 12, 1) == 100

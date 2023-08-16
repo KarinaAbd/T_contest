@@ -17,16 +17,17 @@
 # Формат выходных данных
 # Выведите одно число — минимальное число движений, которое придется сделать Косте.
 
-def count_cuts():
-    people = input()
-    peaces = int(people)
+def count_cuts(peaces):
     res = 0
     if peaces > 1:
         res += 1
         while peaces / 2 > 1:
             res += 1
             peaces /= 2
-    print(res)
+    return res
 
 
-count_cuts()
+assert count_cuts(1) == 0
+assert count_cuts(5) == 3
+assert count_cuts(6) == 3
+assert count_cuts(10) == 4

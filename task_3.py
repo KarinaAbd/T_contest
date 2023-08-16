@@ -28,22 +28,19 @@
 # Выведите одно число — минимально возможное число лестничных пролетов, которое понадобится пройти Кате.
 
 
-def find_min_movement(): 
-    _, time_limit = map(int, input().split())
-    levels = list(map(int, input().split()))
-    level_l = int(input())
-
+def find_min_movement(levels_count, time_limit, levels, target_person): 
     time_for_normal = levels[-1] - levels[0]
 
-    level_l -= 1
-    limit_from_min = levels[level_l] - levels[0]
-    limit_from_max = levels[-1] - levels[level_l]
+    level_limit = target_person - 1
+    limit_from_min = levels[level_limit] - levels[0]
+    limit_from_max = levels[-1] - levels[level_limit]
     possible_time = min(limit_from_min, limit_from_max)
 
     if possible_time > time_limit:
         time_for_normal += possible_time
 
-    print(time_for_normal)
+    return time_for_normal
 
 
-find_min_movement()
+assert find_min_movement(5, 5, [1, 4, 9, 16, 25], 2) == 24
+assert find_min_movement(6, 4, [1, 2, 3, 6, 8, 25], 5) == 31

@@ -13,10 +13,7 @@
 # В выходной файл выведите одно число — максимальную разность между конечной и начальной суммой.
 
 
-def find_max_diff():
-    _, operations_count = map(int, input().split())
-    numbers = list(map(int, input().split()))
-
+def find_max_diff(numbers_count, operations_count, numbers):
     operations_diff = []
     for num in numbers:
         number = str(num)
@@ -26,7 +23,9 @@ def find_max_diff():
             operations_diff.append(int(new) - num)
 
     operations_diff.sort(reverse=True)
-    print(sum(operations_diff[:operations_count]))    
+    return sum(operations_diff[:operations_count])
 
 
-find_max_diff()
+assert find_max_diff(5, 2, [1, 2, 1, 3, 5]) == 16
+assert find_max_diff(3, 1, [99, 5, 85]) == 10
+assert find_max_diff(1, 10, [9999]) == 0
