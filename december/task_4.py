@@ -49,7 +49,7 @@ def add_node(tree, parent, node):
             if result:
                 level[1] += node[1]
                 level[2].extend(node[2])
-            # result = 0
+                level[2].sort()
     return result
 
 

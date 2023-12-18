@@ -20,21 +20,22 @@
 # AAAA No
 # FFOKNIT Yes
 
-from collections import Counter
+# from collections import Counter
 
 
 t = int(input())
 combinations = []
 for i in range(t):
-    combinations.append(input())
+    combinations.append(sorted(input()))
 
 result = []
-pattern = 'TINKOFF'
-pattern_map = Counter(pattern)
+pattern = sorted('TINKOFF')
+# pattern_map = Counter(pattern)
 
 for word in combinations:
-    word_map = Counter(word)
-    if word_map == pattern_map:
+    # word_map = Counter(word)
+    # if word_map == pattern_map:
+    if word == pattern:
         result.append('Yes')
     else:
         result.append('No')

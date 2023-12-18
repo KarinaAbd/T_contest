@@ -36,17 +36,17 @@
 
 t = int(input())
 combinations = []
-for i in range(t):
+for _ in range(t):
     n = int(input())
-    links = (list(map(int, input().split())))
-    combinations.append([n, sum(links)])
-
+    links = sum(map(int, input().split()))
+    combinations.append((n, links))
 result = []
 
 for combination in combinations:
-    if combination[0] == 1 or combination[0] == 2:
+    devs, links = combination
+    if devs == 1 or devs == 2:
         result.append("Yes")
-    elif combination[1] / 2 + 1 >= combination[0]:
+    elif links / 2 + 1 >= devs:
         result.append("Yes")
     else:
         result.append("No")
